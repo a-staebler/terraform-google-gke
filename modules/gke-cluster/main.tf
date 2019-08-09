@@ -9,6 +9,8 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "google_container_cluster" "cluster" {
+  provider = "google-beta"
+
   name        = var.name
   description = var.description
 
@@ -61,6 +63,10 @@ resource "google_container_cluster" "cluster" {
 
     network_policy_config {
       disabled = ! var.enable_network_policy
+    }
+
+    istio_config {
+      disabled = ! var.enable_istio
     }
   }
 

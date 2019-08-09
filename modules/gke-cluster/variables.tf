@@ -74,6 +74,12 @@ variable "http_load_balancing" {
   default     = true
 }
 
+variable "enable_istio" {
+  description = "Whether to enable the istio addon"
+  type        = bool
+  default     = false
+}
+
 variable "enable_private_nodes" {
   description = "Control whether nodes have internal IP addresses only. If enabled, all nodes are given only RFC 1918 private addresses and communicate with the master via private networking."
   type        = bool
